@@ -8,9 +8,6 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 
-const btnScrollToSection1 = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
 const openModal = function (event) {
   event.preventDefault();
   modal.classList.remove('hidden');
@@ -41,4 +38,26 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     const elementId = e.target.getAttribute('href');
     document.querySelector(elementId).scrollIntoView({ behavior: 'smooth' });
   }
+});
+
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', event => {
+  const clicked = event.target.closest('.operations__tab');
+
+  if (!clicked) return;
+
+  tabs.forEach(tab => tab.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+
+  const dataTab = clicked.getAttribute('data-tab');
+  tabContent.forEach(tab =>
+    tab.classList.remove('operations__content--active')
+  );
+  document
+    .querySelector(`.operations__content--${dataTab}`)
+    .classList.add('operations__content--active');
 });
