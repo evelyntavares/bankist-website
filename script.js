@@ -21,6 +21,8 @@ const imageTargets = document.querySelectorAll('img[data-src]');
 const slides = document.querySelectorAll('.slide');
 const dotContainer = document.querySelector('.dots');
 
+const logo = document.querySelector('.nav__logo');
+
 const openModal = function (event) {
   event.preventDefault();
   modal.classList.remove('hidden');
@@ -51,6 +53,10 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
     const elementId = e.target.getAttribute('href');
     document.querySelector(elementId).scrollIntoView({ behavior: 'smooth' });
   }
+});
+
+logo.addEventListener('click', function (event) {
+  header.scrollIntoView({ behavior: 'smooth' });
 });
 
 // Tabbed component
