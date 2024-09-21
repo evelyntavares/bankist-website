@@ -15,4 +15,4 @@ Created by Jonas Schmedtmann, this project serves as a practical learning exerci
 
 - HTML
 - CSS
-- JavaScript
+- Vanilla JavaScript
